@@ -12,7 +12,7 @@ var map = new mapboxgl.Map({
 map.on('load', function() {
   map.addSource('maine', {
     'type': 'geojson',
-    'data': 'https://raw.githubusercontent.com/gregoiredavid/france-geojson/master/regions-version-simplifiee.geojson'
+    'data': 'https://raw.githubusercontent.com/haixuanTao/web-technologies/main/population-francaise-par-departement-2018.geojson'
   });
   map.addLayer({
     'id': 'maine',
@@ -20,8 +20,30 @@ map.on('load', function() {
     'source': 'maine',
     'layout': {},
     'paint': {
-      'fill-color': '#088',
-      'fill-opacity': 0.8
+      'fill-opacity': 0.8,
+      'fill-color': [
+        'interpolate',
+        ['linear'],
+        ['get', 'population'],
+        0,
+        '#F2F12D',
+        500000,
+        '#EED322',
+        750000,
+        '#E6B71E',
+        1000000,
+        '#DA9C20',
+        2500000,
+        '#CA8323',
+        5000000,
+        '#B86B25',
+        7500000,
+        '#A25626',
+        10000000,
+        '#8B4225',
+        25000000,
+        '#723122'
+      ],
     }
   });
 });
