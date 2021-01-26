@@ -12,7 +12,7 @@ var map = new mapboxgl.Map({
 map.on('load', function() {
   map.addSource('maine', {
     'type': 'geojson',
-    'data': ''
+    'data': 'https://raw.githubusercontent.com/gregoiredavid/france-geojson/master/regions-version-simplifiee.geojson'
   });
   map.addLayer({
     'id': 'maine',
